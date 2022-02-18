@@ -26,6 +26,9 @@ struct ContentView: View {
     
     // Tracks the results of all questions answered so far
     @State var results: [Result] = []
+    
+    // Tracks what results should be visible currently
+    @State private var selectedResultVisibility: ResultVisibility = .all
 
     // MARK: Computed properties
     
@@ -146,7 +149,28 @@ struct ContentView: View {
 
             }
 
-            // Show results of prior qusetions attempted
+            // Control filtering of prior tasks
+            VStack {
+                // Label for picker
+                Text("Filter by...")
+                    .font(Font.caption.smallCaps())
+                    .foregroundColor(.secondary)
+                
+                // Picker to allow user to select what tasks to show
+                Picker("Filter", selection: $selectedResultVisibility) {
+                    Text(ResultVisibility.all.rawValue)
+                        .tag(ResultVisibility.all)
+                    Text(ResultVisibility.incorrect.rawValue)
+                        .tag(ResultVisibility.incorrect)
+                    Text(ResultVisibility.correct.rawValue)
+                        .tag(ResultVisibility.correct)
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+            }
+            .padding(.bottom)
+            
+            // Show results of prior questions attempted
             List(results) { result in
                 HStack {
                     Text("\(result.multiplicand)")
