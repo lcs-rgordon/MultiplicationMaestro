@@ -23,6 +23,11 @@ struct ContentView: View {
 
     // MARK: Computed properties
     
+    // Gets updated as new values are randomly generated
+    var correctProduct: Int {
+        return multiplicand * multiplier
+    }
+    
     // The main user interface
     var body: some View {
         
@@ -59,6 +64,31 @@ struct ContentView: View {
                     .multilineTextAlignment(.trailing)
             }
             
+            // Allow input to be checked
+            Button(action: {
+                
+                // Convert the provided input (String) into integer (Int) if possible
+                guard let answerGiven = Int(inputGiven) else {
+                    // User gave invalid input
+                    answerCorrect = false
+                    // Stop checking the answer
+                    return
+                }
+                
+                // Is the integer given actually correct?
+                if answerGiven == correctProduct {
+                    answerCorrect = true
+                } else {
+                    answerCorrect = false
+                }
+                
+            }, label: {
+                Text("Check Answer")
+                    .font(.largeTitle)
+            })
+            .padding()
+            .buttonStyle(.bordered)
+
             // Push content up to top of screen
             Spacer()
 
