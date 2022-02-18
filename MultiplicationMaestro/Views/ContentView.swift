@@ -171,7 +171,7 @@ struct ContentView: View {
             .padding(.bottom)
             
             // Show results of prior questions attempted
-            List(results) { result in
+            List(filter(results, by: selectedResultVisibility)) { result in
                 HStack {
                     Text("\(result.multiplicand)")
                     Text("×")
@@ -213,6 +213,35 @@ struct ContentView: View {
         
         // Ensure most recent result is always at top of the list
         results.insert(newResult, at: 0)
+        
+    }
+    
+    // Filter the list of results to be shown
+    func filter(_ listOfResults: [Result], by visibility: ResultVisibility) -> [Result] {
+        
+        // When the user wants to see all results, just return the list provided
+        if visibility == .all {
+            return listOfResults
+        } else {
+            
+            // Create an empty list of results
+            var filteredResults: [Result] = []
+            
+            // Iterate over the list of results, and build a new list
+            // that only includes the selected type of result
+            for currentResult in listOfResults {
+                
+                if visibility == .correct && currentResult.answerCorrect == true {
+                    filteredResults.insert(currentResult, at: 0)
+                } else if visibility == .incorrect && currentResult.answerCorrect == false {
+                    filteredResults.insert(currentResult, at: 0)
+                }
+                
+            }
+            
+            // Return the filtered list of results
+            return filteredResults
+        }
         
     }
 }
