@@ -80,33 +80,64 @@ struct ContentView: View {
                     .multilineTextAlignment(.trailing)
             }
             
-            // Allow input to be checked
-            Button(action: {
+            // Buttons to control program
+            ZStack {
                 
-                // If we've gotten to this point, the answer has at least been checked
-                answerChecked = true
+                // Allow input to be checked
+                Button(action: {
+                    
+                    // If we've gotten to this point, the answer has at least been checked
+                    answerChecked = true
+                    
+                    // Convert the provided input (String) into integer (Int) if possible
+                    guard let answerGiven = Int(inputGiven) else {
+                        // User gave invalid input (e.g.: typed 'mangos' rather than 5)
+                        answerCorrect = false
+                        // Stop checking the answer
+                        return
+                    }
+                    
+                    // Is the integer given actually correct?
+                    if answerGiven == correctProduct {
+                        answerCorrect = true
+                    } else {
+                        answerCorrect = false
+                    }
+                    
+                }, label: {
+                    Text("Check Answer")
+                        .font(.largeTitle)
+                })
+                    // Only show this button when an answer has not been checked
+                    .opacity(answerChecked == false ? 1.0 : 0.0)
+                    .padding()
+                    .buttonStyle(.bordered)
                 
-                // Convert the provided input (String) into integer (Int) if possible
-                guard let answerGiven = Int(inputGiven) else {
-                    // User gave invalid input (e.g.: typed 'mangos' rather than 5)
+                // Allow new question to be generated
+                Button(action: {
+                    
+                    // Generate a new question
+                    multiplicand = Int.random(in: 1...12)
+                    multiplier = Int.random(in: 1...12)
+                    
+                    // Reset properties that track what's happening with the current question
+                    answerChecked = false
                     answerCorrect = false
-                    // Stop checking the answer
-                    return
-                }
-                
-                // Is the integer given actually correct?
-                if answerGiven == correctProduct {
-                    answerCorrect = true
-                } else {
-                    answerCorrect = false
-                }
-                
-            }, label: {
-                Text("Check Answer")
-                    .font(.largeTitle)
-            })
-            .padding()
-            .buttonStyle(.bordered)
+                    
+                    // Reset the input field
+                    inputGiven = ""
+                    
+                }, label: {
+                    Text("New question")
+                        .font(.largeTitle)
+                })
+                    .padding()
+                    .buttonStyle(.bordered)
+                    // Only show this button when an answer has been checked
+                    .opacity(answerChecked == true ? 1.0 : 0.0)
+
+            }
+            
 
             // Push content up to top of screen
             Spacer()
