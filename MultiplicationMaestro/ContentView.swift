@@ -9,8 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        // Operation, values to be multiplied
+        HStack {
+            Text("×")
+            
+            Spacer()
+            
+            VStack(alignment: .trailing) {
+                Text("7")
+                Text("8")
+            }
+        }
+        .padding()
+        .font(.system(size: 72))
+        
     }
 }
 
