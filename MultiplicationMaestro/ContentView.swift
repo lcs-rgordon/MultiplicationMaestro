@@ -8,6 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: Stored properties
+    
+    // Values to be multiplied
+    @State var multiplicand = Int.random(in: 1...12)
+    @State var multiplier = Int.random(in: 1...12)
+    
+    // Holds the user's input
+    @State var inputGiven = ""
+    
+    // Tracks whether the provided answer is correct or not
+    @State var answerCorrect: Bool = false
+
+    // MARK: Computed properties
+    
+    // The main user interface
     var body: some View {
         
         VStack(spacing: 0) {
@@ -19,8 +35,8 @@ struct ContentView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text("7")
-                    Text("8")
+                    Text("\(multiplicand)")
+                    Text("\(multiplier)")
                 }
             }
             
@@ -32,10 +48,14 @@ struct ContentView: View {
 
                 Image(systemName: "checkmark.circle")
                     .foregroundColor(.green)
+                    // Only show this when the answer given is correct
+                    //            CONDITION          true  false
+                    .opacity(answerCorrect == true ? 1.0 : 0.0)
 
                 Spacer()
                 
-                TextField("", text: .constant("56"))
+                TextField("", text: $inputGiven)
+                    // Ensure input is right-aligned
                     .multilineTextAlignment(.trailing)
             }
             
