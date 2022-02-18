@@ -17,7 +17,10 @@ struct ContentView: View {
     
     // Holds the user's input
     @State var inputGiven = ""
-    
+
+    // Tracks whether the input has even been checked yet
+    @State var answerChecked: Bool = false
+
     // Tracks whether the provided answer is correct or not
     @State var answerCorrect: Bool = false
 
@@ -51,11 +54,24 @@ struct ContentView: View {
             // Result and input area
             HStack {
 
-                Image(systemName: "checkmark.circle")
-                    .foregroundColor(.green)
-                    // Only show this when the answer given is correct
-                    //            CONDITION          true  false
-                    .opacity(answerCorrect == true ? 1.0 : 0.0)
+                ZStack {
+                    Image(systemName: "checkmark.circle")
+                        .foregroundColor(.green)
+                        // Only show this when the answer given is correct
+                        //            CONDITION          true  false
+                        .opacity(answerCorrect == true ? 1.0 : 0.0)
+
+                    Image(systemName: "x.square")
+                        .foregroundColor(.red)
+                        // Show this when both of the following situations are true:
+                        // 1. Answer has been checked.
+                        // 2. Answer was not correct.
+                        // Necessary since if we show this only when an answer is incorrect,
+                        // with no other conditions, it would show as soon as a new
+                        // question is generated.
+                        //                 CONDITION1  AND  CONDITION2             true  false
+                        .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
+                }
 
                 Spacer()
                 
@@ -67,9 +83,12 @@ struct ContentView: View {
             // Allow input to be checked
             Button(action: {
                 
+                // If we've gotten to this point, the answer has at least been checked
+                answerChecked = true
+                
                 // Convert the provided input (String) into integer (Int) if possible
                 guard let answerGiven = Int(inputGiven) else {
-                    // User gave invalid input
+                    // User gave invalid input (e.g.: typed 'mangos' rather than 5)
                     answerCorrect = false
                     // Stop checking the answer
                     return
