@@ -10,18 +10,40 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        // Operation, values to be multiplied
-        HStack {
-            Text("×")
-            
-            Spacer()
-            
-            VStack(alignment: .trailing) {
-                Text("7")
-                Text("8")
+        VStack(spacing: 0) {
+    
+            // Operation, values to be multiplied
+            HStack {
+                Text("×")
+                
+                Spacer()
+                
+                VStack(alignment: .trailing) {
+                    Text("7")
+                    Text("8")
+                }
             }
+            
+            // Horizontal line
+            Divider()
+            
+            // Result and input area
+            HStack {
+
+                Image(systemName: "checkmark.circle")
+                    .foregroundColor(.green)
+
+                Spacer()
+                
+                TextField("", text: .constant("56"))
+                    .multilineTextAlignment(.trailing)
+            }
+            
+            // Push content up to top of screen
+            Spacer()
+
         }
-        .padding()
+        .padding(.horizontal)
         .font(.system(size: 72))
         
     }
