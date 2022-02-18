@@ -23,6 +23,9 @@ struct ContentView: View {
 
     // Tracks whether the provided answer is correct or not
     @State var answerCorrect: Bool = false
+    
+    // Tracks the results of all questions answered so far
+    @State var results: [Result] = []
 
     // MARK: Computed properties
     
@@ -93,6 +96,8 @@ struct ContentView: View {
                     guard let answerGiven = Int(inputGiven) else {
                         // User gave invalid input (e.g.: typed 'mangos' rather than 5)
                         answerCorrect = false
+                        // Save this result
+                        saveResult()
                         // Stop checking the answer
                         return
                     }
@@ -103,7 +108,10 @@ struct ContentView: View {
                     } else {
                         answerCorrect = false
                     }
-                    
+
+                    // Save this result
+                    saveResult()
+
                 }, label: {
                     Text("Check Answer")
                         .font(.largeTitle)
@@ -137,14 +145,50 @@ struct ContentView: View {
                     .opacity(answerChecked == true ? 1.0 : 0.0)
 
             }
+
+            // Show results of prior qusetions attempted
+            List(results) { result in
+                HStack {
+                    Text("\(result.multiplicand)")
+                    Text("×")
+                    Text("\(result.multiplier)")
+                    Text("=")
+                    Text("\(result.inputGiven)")
+                    Text("(\(result.correctProduct))")
+                        .opacity(result.answerCorrect == false ? 1.0 : 0.0)
+                    Spacer()
+                    ZStack {
+                        Image(systemName: "checkmark.circle")
+                            .foregroundColor(.green)
+                            .opacity(result.answerCorrect == true ? 1.0 : 0.0)
+
+                        Image(systemName: "x.square")
+                            .foregroundColor(.red)
+                            .opacity(result.answerCorrect == false ? 1.0 : 0.0)
+                    }
+                }
+                .font(.title)
+            }
             
-
-            // Push content up to top of screen
-            Spacer()
-
         }
         .padding(.horizontal)
         .font(.system(size: 72))
+        
+    }
+    
+    // MARK: Functions
+    
+    // Save the result of a question that has been answered
+    func saveResult() {
+        
+        // Create a result to save based on current question state
+        let newResult = Result(multiplicand: multiplicand,
+                               multiplier: multiplier,
+                               inputGiven: inputGiven,
+                               answerCorrect: answerCorrect)
+        
+        // Ensure most recent result is always at top of the list
+        results.insert(newResult, at: 0)
         
     }
 }
