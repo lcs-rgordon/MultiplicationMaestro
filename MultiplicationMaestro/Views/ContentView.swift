@@ -37,18 +37,10 @@ struct ContentView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-    
-            // Operation, values to be multiplied
-            HStack {
-                Text("×")
-                
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text("\(multiplicand)")
-                    Text("\(multiplier)")
-                }
-            }
+
+            // Present the question
+            QuestionPresentationView(multiplicand: multiplicand,
+                                     multiplier: multiplier)
             
             // Horizontal line
             Divider()
