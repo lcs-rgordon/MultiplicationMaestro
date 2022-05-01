@@ -145,7 +145,7 @@ struct ContentView: View {
 
             }
 
-            // Show results of prior qusetions attempted
+            // Show results of prior questions attempted
             List(results) { result in
                 HStack {
                     Text("\(result.multiplicand)")
