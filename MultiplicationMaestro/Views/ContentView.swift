@@ -168,7 +168,8 @@ struct ContentView: View {
                                inputGiven: inputGiven,
                                answerCorrect: answerCorrect)
         
-        // Ensure most recent result is always at top of the list
+        // Insert most recent result in the first position in list
+        // This ensures newer results at top of list; older at bottom
         results.insert(newResult, at: 0)
         
     }
