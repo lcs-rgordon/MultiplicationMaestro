@@ -12,6 +12,7 @@
 		8159D0E527BFAFBD00613590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8159D0E427BFAFBD00613590 /* Assets.xcassets */; };
 		8159D0E827BFAFBD00613590 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8159D0E727BFAFBD00613590 /* Preview Assets.xcassets */; };
 		8159D0F127BFB98800613590 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8159D0F027BFB98800613590 /* Result.swift */; };
+		81DDFE53281F5320008DED99 /* PriorResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE52281F5320008DED99 /* PriorResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		8159D0E427BFAFBD00613590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8159D0E727BFAFBD00613590 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8159D0F027BFB98800613590 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		81DDFE52281F5320008DED99 /* PriorResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +84,17 @@
 			isa = PBXGroup;
 			children = (
 				8159D0E227BFAFBC00613590 /* ContentView.swift */,
+				81DDFE51281F5303008DED99 /* Helpers */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		81DDFE51281F5303008DED99 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				81DDFE52281F5320008DED99 /* PriorResultView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			files = (
 				8159D0F127BFB98800613590 /* Result.swift in Sources */,
 				8159D0E327BFAFBC00613590 /* ContentView.swift in Sources */,
+				81DDFE53281F5320008DED99 /* PriorResultView.swift in Sources */,
 				8159D0E127BFAFBC00613590 /* MultiplicationMaestroApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,3 +22,9 @@ struct Result: Identifiable {
     }
 
 }
+
+// Test result for use with Xcode Previews
+let testResult = Result(multiplicand: 10,
+                        multiplier: 10,
+                        inputGiven: "101",
+                        answerCorrect: false)

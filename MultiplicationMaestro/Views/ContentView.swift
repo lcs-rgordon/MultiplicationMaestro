@@ -146,27 +146,9 @@ struct ContentView: View {
             }
 
             // Show results of prior questions attempted
-            List(results) { result in
-                HStack {
-                    Text("\(result.multiplicand)")
-                    Text("×")
-                    Text("\(result.multiplier)")
-                    Text("=")
-                    Text("\(result.inputGiven)")
-                    Text("(\(result.correctProduct))")
-                        .opacity(result.answerCorrect == false ? 1.0 : 0.0)
-                    Spacer()
-                    ZStack {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green)
-                            .opacity(result.answerCorrect == true ? 1.0 : 0.0)
-
-                        Image(systemName: "x.square")
-                            .foregroundColor(.red)
-                            .opacity(result.answerCorrect == false ? 1.0 : 0.0)
-                    }
-                }
-                .font(.title)
+            List(results) { currentResult in
+                // Use a helper view to display each prior result
+                PriorResultView(result: currentResult)
             }
             
         }
