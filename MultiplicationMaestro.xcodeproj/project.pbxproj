@@ -14,6 +14,7 @@
 		8159D0F127BFB98800613590 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8159D0F027BFB98800613590 /* Result.swift */; };
 		81DDFE53281F5320008DED99 /* PriorResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE52281F5320008DED99 /* PriorResultView.swift */; };
 		81DDFE55281F555C008DED99 /* QuestionPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE54281F555C008DED99 /* QuestionPresentationView.swift */; };
+		81DDFE57281F5614008DED99 /* AnswerAndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE56281F5614008DED99 /* AnswerAndResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		8159D0F027BFB98800613590 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		81DDFE52281F5320008DED99 /* PriorResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorResultView.swift; sourceTree = "<group>"; };
 		81DDFE54281F555C008DED99 /* QuestionPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresentationView.swift; sourceTree = "<group>"; };
+		81DDFE56281F5614008DED99 /* AnswerAndResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerAndResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				81DDFE52281F5320008DED99 /* PriorResultView.swift */,
 				81DDFE54281F555C008DED99 /* QuestionPresentationView.swift */,
+				81DDFE56281F5614008DED99 /* AnswerAndResultView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				81DDFE55281F555C008DED99 /* QuestionPresentationView.swift in Sources */,
 				81DDFE53281F5320008DED99 /* PriorResultView.swift in Sources */,
 				8159D0E127BFAFBC00613590 /* MultiplicationMaestroApp.swift in Sources */,
+				81DDFE57281F5614008DED99 /* AnswerAndResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
