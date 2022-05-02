@@ -15,6 +15,7 @@
 		81DDFE53281F5320008DED99 /* PriorResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE52281F5320008DED99 /* PriorResultView.swift */; };
 		81DDFE55281F555C008DED99 /* QuestionPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE54281F555C008DED99 /* QuestionPresentationView.swift */; };
 		81DDFE57281F5614008DED99 /* AnswerAndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE56281F5614008DED99 /* AnswerAndResultView.swift */; };
+		81DDFE59281F5789008DED99 /* CheckAnswerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE58281F5789008DED99 /* CheckAnswerButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		81DDFE52281F5320008DED99 /* PriorResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorResultView.swift; sourceTree = "<group>"; };
 		81DDFE54281F555C008DED99 /* QuestionPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresentationView.swift; sourceTree = "<group>"; };
 		81DDFE56281F5614008DED99 /* AnswerAndResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerAndResultView.swift; sourceTree = "<group>"; };
+		81DDFE58281F5789008DED99 /* CheckAnswerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAnswerButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				81DDFE52281F5320008DED99 /* PriorResultView.swift */,
 				81DDFE54281F555C008DED99 /* QuestionPresentationView.swift */,
 				81DDFE56281F5614008DED99 /* AnswerAndResultView.swift */,
+				81DDFE58281F5789008DED99 /* CheckAnswerButtonView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				81DDFE53281F5320008DED99 /* PriorResultView.swift in Sources */,
 				8159D0E127BFAFBC00613590 /* MultiplicationMaestroApp.swift in Sources */,
 				81DDFE57281F5614008DED99 /* AnswerAndResultView.swift in Sources */,
+				81DDFE59281F5789008DED99 /* CheckAnswerButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

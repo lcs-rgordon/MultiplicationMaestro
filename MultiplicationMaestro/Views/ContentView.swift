@@ -27,12 +27,6 @@ struct ContentView: View {
     @State var results: [Result] = []
 
     // MARK: Computed properties
-    
-    // Gets updated as new values are randomly generated
-    var correctProduct: Int {
-        return multiplicand * multiplier
-    }
-    
     // The main user interface
     var body: some View {
         
@@ -54,39 +48,12 @@ struct ContentView: View {
             ZStack {
                 
                 // Allow input to be checked
-                Button(action: {
-                    
-                    // If we've gotten to this point, the answer has at least been checked
-                    answerChecked = true
-                    
-                    // Convert the provided input (String) into integer (Int) if possible
-                    guard let answerGiven = Int(inputGiven) else {
-                        // User gave invalid input (e.g.: typed 'mangos' rather than 5)
-                        answerCorrect = false
-                        // Save this result
-                        saveResult()
-                        // Stop checking the answer
-                        return
-                    }
-                    
-                    // Is the integer given actually correct?
-                    if answerGiven == correctProduct {
-                        answerCorrect = true
-                    } else {
-                        answerCorrect = false
-                    }
-
-                    // Save this result
-                    saveResult()
-
-                }, label: {
-                    Text("Check Answer")
-                        .font(.largeTitle)
-                })
-                    // Only show this button when an answer has not been checked
-                    .opacity(answerChecked == false ? 1.0 : 0.0)
-                    .padding()
-                    .buttonStyle(.bordered)
+                CheckAnswerButtonView(multiplicand: multiplicand,
+                                      multiplier: multiplier,
+                                      inputGiven: inputGiven,
+                                      answerChecked: $answerChecked,
+                                      answerCorrect: $answerCorrect,
+                                      results: $results)
                 
                 // Allow new question to be generated
                 Button(action: {
@@ -125,22 +92,6 @@ struct ContentView: View {
         
     }
     
-    // MARK: Functions
-    
-    // Save the result of a question that has been answered
-    func saveResult() {
-        
-        // Create a result to save based on current question state
-        let newResult = Result(multiplicand: multiplicand,
-                               multiplier: multiplier,
-                               inputGiven: inputGiven,
-                               answerCorrect: answerCorrect)
-        
-        // Insert most recent result in the first position in list
-        // This ensures newer results at top of list; older at bottom
-        results.insert(newResult, at: 0)
-        
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
