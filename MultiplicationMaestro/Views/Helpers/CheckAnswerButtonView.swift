@@ -82,6 +82,11 @@ struct CheckAnswerButtonView: View {
 
 struct CheckAnswerButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckAnswerButtonView()
+        CheckAnswerButtonView(multiplicand: 7,
+                              multiplier: 7,
+                              inputGiven: "56",
+                              answerChecked: .constant(false),
+                              answerCorrect: .constant(true),
+                              results: .constant([]))
     }
 }

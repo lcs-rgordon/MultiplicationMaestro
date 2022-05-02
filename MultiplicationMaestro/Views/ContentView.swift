@@ -56,27 +56,11 @@ struct ContentView: View {
                                       results: $results)
                 
                 // Allow new question to be generated
-                Button(action: {
-                    
-                    // Generate a new question
-                    multiplicand = Int.random(in: 1...12)
-                    multiplier = Int.random(in: 1...12)
-                    
-                    // Reset properties that track what's happening with the current question
-                    answerChecked = false
-                    answerCorrect = false
-                    
-                    // Reset the input field
-                    inputGiven = ""
-                    
-                }, label: {
-                    Text("New question")
-                        .font(.largeTitle)
-                })
-                    .padding()
-                    .buttonStyle(.bordered)
-                    // Only show this button when an answer has been checked
-                    .opacity(answerChecked == true ? 1.0 : 0.0)
+                NewQuestionButtonView(multiplicand: $multiplicand,
+                                      multiplier: $multiplier,
+                                      answerChecked: $answerChecked,
+                                      answerCorrect: $answerCorrect,
+                                      inputGiven: $inputGiven)
 
             }
 
