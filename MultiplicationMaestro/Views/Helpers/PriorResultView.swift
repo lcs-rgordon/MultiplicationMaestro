@@ -2,7 +2,6 @@
 //  PriorResultView.swift
 //  MultiplicationMaestro
 //
-//  Created by Russell Gordon on 2022-05-01.
 //
 
 import SwiftUI
